@@ -23,6 +23,7 @@
 			$('.sites').delay(500).fadeIn(500);
 			$('.map').fadeOut(500);
 		});
+		$('.check_filter input').prop('checked', false);
 		nar.siteFilter.loadSitesToDom();
 		nar.siteFilter.addChangeHandler(function(){
 			nar.siteFilter.clearRows();
