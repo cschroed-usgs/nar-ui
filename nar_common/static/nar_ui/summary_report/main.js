@@ -128,20 +128,14 @@ $(document).ready(
 				var graph = ConstituentCurrentYearComparisonPlot(
 						barChart, series);
 			};
-
-			var requestParamsString = JSON.stringify({
-				'request' : 'GetDataAvailability',
-				'service' : 'SOS',
-				'version' : '2.0.0',
-				'featureOfInterest' : id
-			});
+			var queryString = 'timeseries/availability/' + id + "?" + nar.util.getIgnoredModtypeString();
+			
 			//find out what data is available for the site
 			var getDataAvailability = $.ajax({
-				url : CONFIG.endpoint.sos + '/json?id=' + nar.util.getHashCode(requestParamsString),
+				url : CONFIG.endpoint.nar_webservice + queryString + '&id=' + nar.util.getHashCode(queryString),
 				contentType : 'application/json',
-				type: 'POST',
-				dataType : 'json',
-				data : requestParamsString
+				type: 'GET',
+				dataType : 'json'
 			});
 
 			var streamflowDataAvailability = [];
@@ -149,19 +143,22 @@ $(document).ready(
 			var phosphorusDataAvailability = [];
 			var sedimentDataAvailability = [];
 			
-			var successfulGetDataAvailability = function(data, textStatus, jqXHR) {
-
-				var dataAvailability = data.dataAvailability;
+			var annual_load_constituent_category_to_dataAvailabilityMap = {
+				'NO3_NO2' : nitrateDataAvailability,
+				'TP' : phosphorusDataAvailability,
+				'SSC' : sedimentDataAvailability
+			};
+			
+			var successfulGetDataAvailability = function(dataAvailability, textStatus, jqXHR) {
         				
 				dataAvailability.each(function(dataAvailability) {
-					var observedProperty = dataAvailability.observedProperty;
-					var procedure = dataAvailability.procedure;
-					//ignore some MODTYPEs
-					if(nar.util.stringContainsIgnoredModtype(procedure)){
-						return;//continue
-					}
-					else if (procedure.endsWith('discrete_concentration') &&
-							observedProperty.endsWith('NO3_NO2')) {
+					var constituent = dataAvailability.constit;
+					var timeStepDensity = dataAvailability.timeStepDensity;
+					var timeSeriesCategory = dataAvailability.timeSeriesCategory;
+										
+					if ('DISCRETE' === timeStepDensity 
+						&& 'CONCENTRATION' === timeSeriesCategory 
+						&& 'NO3_NO2' === constituent) {
 
 						var timeSeries = new nar.timeSeries.TimeSeries(
 						{
@@ -188,28 +185,19 @@ $(document).ready(
 	        				}
 	        			);
 					}
-					else if (procedure.endsWith('annual_flow') && 
-							observedProperty.endsWith('Q')) {
-
-						streamflowDataAvailability.push(dataAvailability);						
-                    }
-					else if (procedure.has('annual_mass/') &&
-							(observedProperty.endsWith('NO3_NO2'))) {
-						
-						nitrateDataAvailability.push(dataAvailability);						
-					}	
-					else if (procedure.has('annual_mass/') &&
-							(observedProperty.endsWith('TP'))) {
-						
-						phosphorusDataAvailability.push(dataAvailability);						
-					}	
-					else if (procedure.has('annual_mass/') &&
-							(observedProperty.endsWith('SSC'))) {
-						
-						sedimentDataAvailability.push(dataAvailability);						
+					else if ('ANNUAL' === timeStepDensity){
+						if ('FLOW' === timeSeriesCategory) {
+							streamflowDataAvailability.push(dataAvailability);						
+						} else if ('LOAD' === timeSeriesCategory){
+							var dataAvailabilityList = annual_load_constituent_category_to_dataAvailabilityMap[constituent];
+							if(dataAvailabilityList) {
+								dataAvailabilityList.push(dataAvailability);
+							}
+						}
 					}
 				});
-		
+				
+				
 				var loadStreamflowTSCollections = [];
 				loadStreamflowTSCollections.push(getTimeSeriesCollection(streamflowDataAvailability));
 				var loadStreamflowDataPromises = [];

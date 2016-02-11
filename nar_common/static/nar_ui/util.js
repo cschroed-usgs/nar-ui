@@ -74,7 +74,11 @@ nar.util = {};
 			return myString.has(ignoredModtype);
 		});
 	};
-	
+	nar.util.getIgnoredModtypeString = function (){
+		return nar.util.IGNORED_MODTYPES.map(function(ignoredModtype){
+			return $.param({'excludeModtype':ignoredModtype});
+		}).join('&');
+	}
 	nar.util.getHashCode = function(str) {
 		var hash = 0, i, chr, len;
 		if (str.length === 0) return hash;
