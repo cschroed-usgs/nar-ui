@@ -12,9 +12,9 @@
 <title>{% block title %}NAWQA Annual Reports{% endblock %}</title>
 <meta name="description" content="{% block page_description %}{% endblock %}" />
 {% block style %}
-<link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Signika+Negative:300,400,700' rel='stylesheet' type='text/css'>
 
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
 
 
 <!-- this is an example of loading a non-less stylesheet-->
@@ -55,9 +55,9 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
 		var CONFIG = {
 			staticUrl : '{% static '' %}',			
 			endpoint : {
-				geoserver: 'http://' + '{{ settings.GEOSERVER_HOST_NAME|escapejs }}' + '{{ settings.GEOSERVER_PATH|escapejs}}',
-				sos: 'http://' + '{{ settings.SOS_HOST_NAME|escapejs }}' + '{{ settings.SOS_PATH|escapejs}}',
-				nar_webservice: 'http://' + '{{ settings.NAR_WEBSERVICE|escapejs }}' + '{{ settings.NAR_WEBSERVICE_PATH|escapejs}}',
+				geoserver: 'https://' + '{{ settings.GEOSERVER_HOST_NAME|escapejs }}' + '{{ settings.GEOSERVER_PATH|escapejs}}',
+				sos: 'https://' + '{{ settings.SOS_HOST_NAME|escapejs }}' + '{{ settings.SOS_PATH|escapejs}}',
+				nar_webservice: 'https://' + '{{ settings.NAR_WEBSERVICE|escapejs }}' + '{{ settings.NAR_WEBSERVICE_PATH|escapejs}}',
 			},
 			sosDefsBaseUrl : '{{ settings.NAR_SOS_DEFS_BASE_URL | safe}}',
 			currentWaterYear : {{ settings.NAR_CURRENT_WATER_YEAR }},
@@ -111,7 +111,7 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
 			ga('send', 'pageview');
 		</script>
 		
-		<script type="application/javascript" src="http://www.usgs.gov/scripts/analytics/usgs-analytics.js"></script>
+		<script type="application/javascript" src="https://www2.usgs.gov/scripts/analytics/usgs-analytics.js"></script>
 		
 		
 		
@@ -133,7 +133,7 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
 
 	<div class="col-lg-2 logo col-md-2 col-sm-2 col-xs-2">
     
-    	<a href="http://www.usgs.gov/" target="_blank">
+    	<a href="https://www.usgs.gov/" target="_blank">
     		<img src="{% static 'nar_ui/images/usgslogo.jpg' %}" class="img-responsive" alt="usgs logo"/>
     	</a>
         
@@ -148,15 +148,15 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
     <div class="col-lg-1 header_nav col-md-1 col-sm-1 col-xs-1">
     
     	<ul>
-        	<a href="http://www.usgs.gov/" target="_blank">
+        	<a href="https://www.usgs.gov/" target="_blank">
             	<li>USGS Home</li>
             </a>
             
-            <a href="http://answers.usgs.gov/" target="_blank">		
+            <a href="https://answers.usgs.gov/" target="_blank">
             	<li>Contact USGS</li>
             </a>
             
-             <a href="http://search.usgs.gov/" target="_blank">
+             <a href="https://search.usgs.gov/" target="_blank">
             <li>Search USGS</li>
             </a>
         </ul>
@@ -255,10 +255,10 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
     
     	<ul>
         
-        	<li><a href="http://www.usgs.gov/laws/accessibility.html" target="_blank">Accessibility</a></li>
-            <li><a href="http://www.usgs.gov/foia/" target="_blank">FOIA</a></li>
-            <li><a href="http://www.usgs.gov/laws/privacy.html" target="_blank">Privacy</a></li>
-            <li><a href="http://www.usgs.gov/laws/policies_notices.html" target="_blank">Policies and Notices</a></li>
+        	<li><a href="https://www.usgs.gov/laws/accessibility.html" target="_blank">Accessibility</a></li>
+            <li><a href="https://www.usgs.gov/foia/" target="_blank">FOIA</a></li>
+            <li><a href="https://www.usgs.gov/laws/privacy.html" target="_blank">Privacy</a></li>
+            <li><a href="https://www.usgs.gov/laws/policies_notices.html" target="_blank">Policies and Notices</a></li>
         
         </ul>
     
@@ -266,14 +266,14 @@ from the top menu bar, selecting ‘Compatibility view settings’, uncheck boxe
     
     <div class="col-lg-12 footer_bottom col-md-12 col-sm-12 col-xs-12">
     
-    	<p class="first"><a href="http://www.doi.gov/index.cfm" target="_blank">U.S Department of the Interior</a> | <a href="http://www.usgs.gov/" target="_blank">U.S Geological Survey</a></p>
-        <p>URL:http://cida.usgs.gov/quality/rivers</p>
+    	<p class="first"><a href="https://www.doi.gov/index.cfm" target="_blank">U.S Department of the Interior</a> | <a href="https://www.usgs.gov/" target="_blank">U.S Geological Survey</a></p>
+        <p>URL:https://cida.usgs.gov/quality/rivers</p>
         <p>Contact Information: riverquality@usgs.gov</p>
         <p>Page last modified: 04/15/2015</p>
         
         <div id="pic_links">
         
-        	<a href="http://www.usa.gov/" target="_blank"><img src="{% static 'nar_ui/images/usa_gov.png' %}" alt="usa.gov pic"/></a>
+        	<a href="https://www.usa.gov/" target="_blank"><img src="{% static 'nar_ui/images/usa_gov.png' %}" alt="usa.gov pic"/></a>
             
             
         
