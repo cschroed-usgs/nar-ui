@@ -24,7 +24,7 @@ class SiteNotFoundException(Exception):
     pass
     
 # Create your models here.
-nar_namespaces = {'NAR': 'http://cida.usgs.gov/NAR'}
+nar_namespaces = {'NAR': 'https://cida.usgs.gov/NAR'}
 def get_site_name(site_id, url):
     filter = """
     <ogc:Filter xmlns:ogc="http://www.opengis.net/ogc">

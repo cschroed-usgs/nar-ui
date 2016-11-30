@@ -14,7 +14,7 @@ class SiteReportView(TemplateView):
     def get_context_data(self, **kwargs):        
         context = super(SiteReportView, self).get_context_data(**kwargs)
         site_id = context.get('site_id', '01646580')
-        url = 'http://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wfs'
+        url = 'https://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wfs'
         try:
             site_name = models.get_site_name(site_id, url)
             context['site_name'] = site_name
