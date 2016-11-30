@@ -27,7 +27,7 @@ nar.commons.map = nar.commons.map || {};
 	        var ArcGisLayer = function(name, identifier) {
 	            return new OpenLayers.Layer.XYZ(
 	                name,
-	                "http://services.arcgisonline.com/ArcGIS/rest/services/" + identifier + zyx,
+	                "https://services.arcgisonline.com/ArcGIS/rest/services/" + identifier + zyx,
 	                _layerOptions
 	            );
 	        };
@@ -42,7 +42,7 @@ nar.commons.map = nar.commons.map || {};
 	    },
 	    createNlcdLayers : function(layerOptions) {
 	    	var _layerOptions = layerOptions || DEFAULT_LAYER_OPTIONS;
-	        var nlcdUrl = 'http://raster.nationalmap.gov/arcgis/services/LandCover/USGS_EROS_LandCover_NLCD/MapServer/WMSServer';
+	        var nlcdUrl = 'https://raster.nationalmap.gov/arcgis/services/LandCover/USGS_EROS_LandCover_NLCD/MapServer/WMSServer';
 	        
 	        var nlcdProjection = 'EPSG:3857';
 	        

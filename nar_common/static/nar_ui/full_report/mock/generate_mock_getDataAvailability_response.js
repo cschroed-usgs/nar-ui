@@ -35,7 +35,7 @@
                                   ].map(function(subcategory){
                                       return 'streamflow/' + subcategory;
                                   });
-        var root = 'http://cida.usgs.gov/def/nar/';
+        var root = 'https://cida.usgs.gov/def/nar/';
         var finalUrls = ([].concat(waterQualitySuffixes)).concat(streamflowSuffixes).map(function(suffix){
             return root + suffix;
         });
@@ -65,7 +65,7 @@
             }
     };
     var mockGetDataAvailabilityResponse = function(observedProperties){
-        var featureOfInterest = 'http://waterdata.usgs.gov/nwis/nwisman/?site_no=03303280';
+        var featureOfInterest = 'https://waterdata.usgs.gov/nwis/nwisman/?site_no=03303280';
         var createEntry = function(observedProperty){
             var oddOrEven = observedProperty.length % 2;
             var monthlyOrAnnual;

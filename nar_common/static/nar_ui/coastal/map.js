@@ -76,7 +76,7 @@ nar.coastal.map = (function() {
 	me.createBaseLayer = function() {
 		return new OpenLayers.Layer.XYZ(
 				"World Topo Map",
-				"http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${y}/${x}",
+				"https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${y}/${x}",
 				{
 					sphericalMercator : true,
 					layers: "0",

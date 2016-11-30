@@ -25,7 +25,7 @@ class NarDBHealthServiceView(View):
 class GeoserverHealthServiceView(View):
     
     def get(self, request, *args, **kwargs):  
-        url = 'http://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wms'
+        url = 'https://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wms'
         req = requests.get(url,
                            params = {
                                      'service' : 'WMS',
@@ -41,7 +41,7 @@ class GeoserverHealthServiceView(View):
 class SosHealthServiceView(View):
     
     def get(self, request, *args, **kwargs):
-        url = 'http://' + settings.SOS_HOST_NAME + settings.SOS_PATH
+        url = 'https://' + settings.SOS_HOST_NAME + settings.SOS_PATH
         req = requests.get(url, params = {
                                           'request' : 'GetDataAvailability',
                                           'service' : 'SOS',

@@ -27,7 +27,7 @@ class SiteNotFoundException(Exception):
 nar_namespaces = {'NAR': 'https://cida.usgs.gov/NAR'}
 def get_site_name(site_id, url):
     filter = """
-    <ogc:Filter xmlns:ogc="http://www.opengis.net/ogc">
+    <ogc:Filter xmlns:ogc="https://www.opengis.net/ogc">
        <ogc:PropertyIsEqualTo>
         <ogc:PropertyName>NAR:qw_id</ogc:PropertyName>
         """
