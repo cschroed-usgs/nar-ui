@@ -39,12 +39,12 @@ SOS_HOST_NAME = 'cida-eros-nardev.er.usgs.gov'
 
 #no trailing slash
 
-SOS_PATH = ':8080/quality/rivers/service/sos/sos'
+SOS_PATH = ':8443/quality/rivers/service/sos/sos'
 
 GEOSERVER_HOST_NAME = 'cida-eros-nardev.er.usgs.gov'
 
-GEOSERVER_PATH = ':8082/quality/rivers/service/geoserver/'
+GEOSERVER_PATH = ':8445/quality/rivers/service/geoserver/'
 
 NAR_WEBSERVICE = 'cida-eros-nardev.er.usgs.gov'
 
-NAR_WEBSERVICE_PATH = ':8083/nar-webservices/service/'
+NAR_WEBSERVICE_PATH = ':8446/nar-webservices/service/'
