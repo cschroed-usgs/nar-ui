@@ -4,6 +4,7 @@ import xml.etree.ElementTree as etree
 import requests
 
 from django.db import models
+from utils.safe_session import safe_session
 
 
 class MississippiYear(models.Model):
@@ -24,7 +25,7 @@ class SiteNotFoundException(Exception):
     pass
     
 # Create your models here.
-nar_namespaces = {'NAR': 'https://cida.usgs.gov/NAR'}
+nar_namespaces = {'NAR': 'http://cida.usgs.gov/NAR'}
 def get_site_name(site_id, url):
     filter = """
     <ogc:Filter xmlns:ogc="https://www.opengis.net/ogc">
@@ -45,8 +46,8 @@ def get_site_name(site_id, url):
               'typeName': 'NAR:JD_NFSN_sites',
               'filter': filter,
     }
-    
-    my_request = requests.get(url, params=params)
+    session = safe_session()
+    my_request = session.get(url, params=params)
     tree = etree.fromstring(my_request.content)
     numberMatchedAttributes = tree.findall("[@numberMatched='1']")
     if len(numberMatchedAttributes):

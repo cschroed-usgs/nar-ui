@@ -1,4 +1,4 @@
-
+import os
 from sys import argv
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -25,7 +25,7 @@ if not RUNNING_TESTS:
             'NAME' : 'postgres',
             'USER' : 'postgres',
             'PASSWORD' : '',
-            'HOST' : '127.0.0.1',
+            'HOST' : '152.61.236.193',
             'PORT' : '5432'
         }
     }
@@ -39,12 +39,17 @@ SOS_HOST_NAME = 'cida-eros-nardev.er.usgs.gov'
 
 #no trailing slash
 
-SOS_PATH = ':8080/quality/rivers/service/sos/sos'
+SOS_PATH = ':8443/quality/rivers/service/sos/sos'
 
 GEOSERVER_HOST_NAME = 'cida-eros-nardev.er.usgs.gov'
 
-GEOSERVER_PATH = ':8082/quality/rivers/service/geoserver/'
+GEOSERVER_PATH = ':8445/quality/rivers/service/geoserver/'
 
 NAR_WEBSERVICE = 'cida-eros-nardev.er.usgs.gov'
 
-NAR_WEBSERVICE_PATH = ':8083/nar-webservices/service/'
+NAR_WEBSERVICE_PATH = ':8446/nar-webservices/service/'
+
+#this only needs to be defined on localhost, dev
+this_directory = os.path.dirname(os.path.realpath(__file__))
+nardev_cert_path = os.path.join(this_directory, 'cida-eros-nardev.er.usgs.gov.pem')
+CUSTOM_CA_BUNDLE = nardev_cert_path
