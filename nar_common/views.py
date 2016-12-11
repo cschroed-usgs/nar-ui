@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseServerError
 from django.views.generic import View
 
 from helpcontent.models import Definition
+from utils.safe_session import safe_session
 
 
 class NarDBHealthServiceView(View):
@@ -26,7 +27,8 @@ class GeoserverHealthServiceView(View):
     
     def get(self, request, *args, **kwargs):  
         url = 'https://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wms'
-        req = requests.get(url,
+        session = safe_session()
+        req = session.get(url,
                            params = {
                                      'service' : 'WMS',
                                      'version' : '2.0.0',
@@ -42,7 +44,8 @@ class SosHealthServiceView(View):
     
     def get(self, request, *args, **kwargs):
         url = 'https://' + settings.SOS_HOST_NAME + settings.SOS_PATH
-        req = requests.get(url, params = {
+        session = ssafe_session()
+        req = session.get(url, params = {
                                           'request' : 'GetDataAvailability',
                                           'service' : 'SOS',
                                           'version' : '2.0.0'

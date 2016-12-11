@@ -25,7 +25,7 @@ if not RUNNING_TESTS:
             'NAME' : 'postgres',
             'USER' : 'postgres',
             'PASSWORD' : '',
-            'HOST' : '127.0.0.1',
+            'HOST' : '152.61.236.193',
             'PORT' : '5432'
         }
     }
@@ -48,3 +48,6 @@ GEOSERVER_PATH = ':8445/quality/rivers/service/geoserver/'
 NAR_WEBSERVICE = 'cida-eros-nardev.er.usgs.gov'
 
 NAR_WEBSERVICE_PATH = ':8446/nar-webservices/service/'
+
+#this only needs to be defined on localhost, dev
+CUSTOM_CA_BUNDLE = '/etc/ssl/ca-bundle.pem'
