@@ -1,4 +1,4 @@
-
+import os
 from sys import argv
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -50,4 +50,6 @@ NAR_WEBSERVICE = 'cida-eros-nardev.er.usgs.gov'
 NAR_WEBSERVICE_PATH = ':8446/nar-webservices/service/'
 
 #this only needs to be defined on localhost, dev
-CUSTOM_CA_BUNDLE = '/etc/ssl/ca-bundle.pem'
+this_directory = os.path.dirname(os.path.realpath(__file__))
+nardev_cert_path = os.path.join(this_directory, 'cida-eros-nardev.er.usgs.gov.pem')
+CUSTOM_CA_BUNDLE = nardev_cert_path
