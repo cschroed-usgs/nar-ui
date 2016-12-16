@@ -44,7 +44,7 @@ class SosHealthServiceView(View):
     
     def get(self, request, *args, **kwargs):
         url = 'https://' + settings.SOS_HOST_NAME + settings.SOS_PATH
-        session = ssafe_session()
+        session = safe_session()
         req = session.get(url, params = {
                                           'request' : 'GetDataAvailability',
                                           'service' : 'SOS',
