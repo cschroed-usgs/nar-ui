@@ -16,8 +16,11 @@ class SiteReportView(TemplateView):
         site_id = context.get('site_id', '01646580')
         url = 'https://' + settings.GEOSERVER_HOST_NAME + settings.GEOSERVER_PATH + 'wfs'
         try:
-            site_name = models.get_site_name(site_id, url)
+            site_info = models.get_site_info(site_id, url)
+            site_name = models.get_site_name(site_info)
+            download_url = models.get_download_url(site_info)
             context['site_name'] = site_name
+            context['download_url'] = download_url
             return context
         except SiteNotFoundException, e:
             raise Http404

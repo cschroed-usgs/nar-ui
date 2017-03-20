@@ -66,6 +66,7 @@ nar.SiteIdentificationControl = OpenLayers.Class(OpenLayers.Control.WMSGetFeatur
 					$hiddenAutoFocus = $('<span />').addClass('hidden').attr('autofocus', ''),
 					data = feature.data,
 					title = data.qw_name,
+					downloadURL = feature.data.sb_web,
 					id = data.staid || data.qw_id;
 				
 				$titleRow.html(title);
@@ -73,7 +74,10 @@ nar.SiteIdentificationControl = OpenLayers.Class(OpenLayers.Control.WMSGetFeatur
 				
 				$summaryGraphsLink.attr('href', CONFIG.summarySiteUrl(id));
 				$detailedGraphsLink.attr('href', CONFIG.detailSiteUrl(id));
-				$downloadLink.attr('href', CONFIG.downloadPageUrl);
+				$downloadLink.attr({
+					href: downloadURL,
+					target: '_blank'
+				});
 				$detailedPesticdeGraphsLink.attr('href', CONFIG.detailPesticideSiteUrl(id));
 				
 				$summaryGraphsLinkContainer.append($summaryGraphsLink);

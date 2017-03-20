@@ -191,6 +191,7 @@ $(document).ready(function() {
 							$hiddenAutoFocus = $('<span />').addClass('hidden').attr('autofocus', ''),
 							data = feature.data,
 							title = virtualSite ? data.staname : data.qw_name,
+							downloadURL = data.sb_web,
 							id = virtualSite ? 'GULF': data.qw_id,
 							loadGraphData = {staname : title, siteId : id, isVirtual : virtualSite};
 						$mayLoadGraphsLink.data('feature', loadGraphData);
@@ -208,7 +209,10 @@ $(document).ready(function() {
 							on('click', makeGraphClickHandler('may', loadGraphData, filtersSubject.getFilterData().chemical));
 						$summaryGraphsLink.attr('href', CONFIG.summarySiteUrl(id));
 						$detailedGraphsLink.attr('href', CONFIG.detailSiteUrl(id));
-						$downloadLink.attr('href', CONFIG.downloadPageUrl);
+						$downloadLink.attr({
+							href: downloadURL,
+							target: '_blank'
+						});
 						
 						$annualLoadGraphsLinkContainer.append($annualLoadGraphsLink);
 						$mayLoadGraphsLinkContainer.append($mayLoadGraphsLink);
