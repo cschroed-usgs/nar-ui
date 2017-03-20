@@ -18,9 +18,9 @@ class SiteReportView(TemplateView):
         try:
             site_info = models.get_site_info(site_id, url)
             site_name = models.get_site_name(site_info)
-            sb_download = models.get_download_url(site_info)
+            download_url = models.get_download_url(site_info)
             context['site_name'] = site_name
-            context['sb_download'] = sb_download
+            context['download_url'] = download_url
             return context
         except SiteNotFoundException, e:
             raise Http404
