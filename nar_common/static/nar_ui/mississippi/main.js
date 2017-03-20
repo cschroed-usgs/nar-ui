@@ -208,7 +208,10 @@ $(document).ready(function() {
 							on('click', makeGraphClickHandler('may', loadGraphData, filtersSubject.getFilterData().chemical));
 						$summaryGraphsLink.attr('href', CONFIG.summarySiteUrl(id));
 						$detailedGraphsLink.attr('href', CONFIG.detailSiteUrl(id));
-						$downloadLink.attr('href', CONFIG.downloadPageUrl);
+						$downloadLink.attr({
+							href: data.sb_web,
+							target: '_blank'
+						});
 						
 						$annualLoadGraphsLinkContainer.append($annualLoadGraphsLink);
 						$mayLoadGraphsLinkContainer.append($mayLoadGraphsLink);

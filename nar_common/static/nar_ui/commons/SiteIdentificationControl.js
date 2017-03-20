@@ -73,7 +73,10 @@ nar.SiteIdentificationControl = OpenLayers.Class(OpenLayers.Control.WMSGetFeatur
 				
 				$summaryGraphsLink.attr('href', CONFIG.summarySiteUrl(id));
 				$detailedGraphsLink.attr('href', CONFIG.detailSiteUrl(id));
-				$downloadLink.attr('href', CONFIG.downloadPageUrl);
+				$downloadLink.attr({
+					href: feature.data.sb_web,
+					target: '_blank'
+				});
 				$detailedPesticdeGraphsLink.attr('href', CONFIG.detailPesticideSiteUrl(id));
 				
 				$summaryGraphsLinkContainer.append($summaryGraphsLink);

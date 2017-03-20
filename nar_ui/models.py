@@ -11,7 +11,7 @@ class MississippiYear(models.Model):
     is_range = models.BooleanField(default=False)
     
     def __unicode__(self):
-        return u'%s' %self.value
+        return u'%s' % self.value
     
     class Meta:
         
@@ -24,18 +24,18 @@ class SiteNotFoundException(Exception):
     
 # Create your models here.
 nar_namespaces = {'NAR': 'http://cida.usgs.gov/NAR'}
-def get_site_name(site_id, url):
+def get_site_info(site_id, url):
     ogc_filter = """
     <ogc:Filter xmlns:ogc="https://www.opengis.net/ogc">
        <ogc:PropertyIsEqualTo>
         <ogc:PropertyName>NAR:qw_id</ogc:PropertyName>
         """
-    ogc_filter += '<ogc:Literal>' + site_id +'</ogc:Literal>' + """
+    ogc_filter += '<ogc:Literal>' + site_id + '</ogc:Literal>' + """
        </ogc:PropertyIsEqualTo>
     </ogc:Filter>
     """
-    #kill all whitespace except for one-length whitespace like the spaces between xml tag names and attribute names
-    ogc_filter = re.sub(r'\s{2,}', '',  ogc_filter)
+    # kill all whitespace except for one-length whitespace like the spaces between xml tag names and attribute names
+    ogc_filter = re.sub(r'\s{2,}', '', ogc_filter)
     
     params = {
               'service': 'WFS',
@@ -49,7 +49,17 @@ def get_site_name(site_id, url):
     tree = etree.fromstring(my_request.content)
     numberMatchedAttributes = tree.findall("[@numberMatched='1']")
     if len(numberMatchedAttributes):
-        site_name = tree.findall('*//NAR:qw_name', namespaces=nar_namespaces)[0].text
-        return site_name
+        return tree
     else:
         raise SiteNotFoundException("Could not find site with id=" + site_id)
+    
+   
+def get_site_name(tree):
+    site_name = tree.findall('*//NAR:qw_name', namespaces=nar_namespaces)[0].text
+    return site_name
+   
+    
+def get_download_url(tree):
+    download_url = tree.findall('*//NAR:sb_web', namespaces=nar_namespaces)[0].text
+    return download_url
+    
