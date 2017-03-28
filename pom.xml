@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.usgs.cida.nar</groupId>
     <artifactId>nar-ui</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
     <packaging>pom</packaging>
     <name>NAWQA Annual Reporting UI</name>
   
@@ -66,7 +66,7 @@
         <connection>scm:git:git@github.com:USGS-CIDA/nar_ui.git</connection>
         <developerConnection>scm:git:git@github.com:USGS-CIDA/nar_ui.git</developerConnection>
         <url>https://github.com/USGS-CIDA/nar_ui</url>
-    <tag>HEAD</tag>
+    <tag>nar-ui-1.0.12</tag>
   </scm>
 	
     <distributionManagement>
