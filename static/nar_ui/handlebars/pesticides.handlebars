@@ -1,0 +1,68 @@
+
+<h4 id="flowChartHeader"></h4>
+
+<div class="pesticideChartSection">
+	{{npestNew}}
+	<p>Pesticides Analyzed</p>
+</div>
+
+<div class="downLine"></div>
+
+<div class="pesticideChartSection">
+	{{ndetsNew}}
+	<p>Pesticides Detected</p>
+</div>
+
+<div class="downLine"></div>
+
+<div class="acrossAndDownLine"></div>
+
+<div class="pesticideDoubles">
+
+	<div class="pesticideChartSection">
+		{{ndetsHh}}
+		<p>Pesticides with human-health benchmarks</p>
+	</div>
+	
+	<div class="pesticideChartSection">
+		{{ndetsAq}}
+		<p>Pesticides with aquatic-life benchmarks</p>
+	</div>
+	
+</div>
+
+<div class="leftSideDownLine">
+	<div class="downLine"></div>
+</div>
+
+<div class="rightSideDownLine">
+	<div class="downLine"></div>
+</div>
+
+<div class="pesticideDoubles">
+
+	<div class="pesticideChartSection">
+		{{nHh}}
+		{{#pesticideExceed nHh}}
+			<p class="clickForHuman">Pesticides exceeded human-health benchmarks</p>
+		{{else}}
+			<p>Pesticides exceeded human-health benchmarks</p>
+		{{/pesticideExceed}}
+		<div id="humanExceedances">
+			<p>{{pestNewExceedHh}}</p>
+		</div>
+	</div>
+	
+	<div class="pesticideChartSection">
+		{{nAq}}
+		{{#pesticideExceed nAq}}
+			<p class="clickForAquatic">Pesticides exceeded aquatic-life benchmarks</p>
+		{{else}}
+			<p>Pesticides exceeded aquatic-life benchmarks</p>
+		{{/pesticideExceed}}
+		<div id="aquaticExceedances">
+			<p>{{pestNewExceedAq}}</p>
+		</div>
+	</div>
+	
+</div>
