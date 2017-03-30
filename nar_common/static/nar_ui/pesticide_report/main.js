@@ -28,8 +28,29 @@ $(document).ready(function() {
 	var successfulGetDataAvailability = function(data,
 			textStatus, jqXHR) {
 		//exclude pesticides
-		var dataAvailability = data.filter(function(datumAvailability){
-			return datumAvailability.constituentCategorization && datumAvailability.constituentCategorization.category && 'PESTICIDE' === datumAvailability.constituentCategorization.category;
+		
+		var isPesticide = function(datumAvailability){
+			return 'undefined' !== typeof datumAvailability.constituentCategorization
+				&& 'undefined' !== typeof datumAvailability.constituentCategorization.category
+				&& 'PESTICIDE' === datumAvailability.constituentCategorization.category;
+		};
+		var isComparison = function(datumAvailability){
+			return 'undefined' !== typeof datumAvailability.comparisonCategorization;
+		};
+		var isAbsoluteComparison = function(datumAvailability){
+			return 'undefined' !== typeof datumAvailability.comparisonCategorization.category
+				&& 'ABSOLUTE' === datumAvailability.comparisonCategorization.category;
+		};
+		var isMostDetected = function(datumAvailability){
+			return 'undefined' !== typeof datumAvailability.comparisonCategorization.order
+				&& 1 === datumAvailability.comparisonCategorization.order;
+		};
+		
+		var dataAvailability = data.filter(function(datumAvailability) {
+			return isPesticide(datumAvailability)
+				&& isComparison(datumAvailability)
+				&& isAbsoluteComparison(datumAvailability)
+				&& isMostDetected(datumAvailability);
 		});
 		//populate the tsvRegistry with tsvs created from the GetDataAvailability response 
 		dataAvailability.each(function(dataAvailability) {

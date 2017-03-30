@@ -24,11 +24,9 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
      */
     var getBenchmarkComparisonTreeIdFragment = function(order){
     	var strOrder = '' + order;
-    	//Switch back to 2nd and 3rd
-		var orderMap = {'1' : '', '2': 'Second', '3': 'Third'};
+		var orderMap = {'1' : '', '2': '2nd ', '3': '3rd '};
 		var prefix = orderMap[strOrder];
-		//add spaces back
-		var benchmarkComparisonFragment = prefix + 'ClosesttoBenchmarks';
+		var benchmarkComparisonFragment = prefix + 'Closest to Benchmarks';
 		return benchmarkComparisonFragment;
     };
     
@@ -52,7 +50,6 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
     			treeIdFragment += self.displayHierarchyDelim + 'Aquatic Life';
     		}
     	}
-    	
     	return treeIdFragment;
     };
     
@@ -325,6 +322,5 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
         tsvController.removeAll(timeSeriesVisualizations);
     });
     //open root node by default
-    $(graphToggleElt).jstree("open_node", "root");
-    
+    $(graphToggleElt).jstree("open_node", "root")
 };
