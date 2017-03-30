@@ -38,9 +38,7 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
     var comparisonCategorizationToTreeIdFragment = function(comparisonCategorization){
     	var treeIdFragment;
     	if('ABSOLUTE' === comparisonCategorization.category){
-    		//Removed spaces so could use the generated CSS ID to hide it for the time being
-    		//when we want MostFrequentlyDetected back just add the spaces back and removes css in nar.less
-    		treeIdFragment = 'MostFrequentlyDetected'
+    		treeIdFragment = 'Most Frequently Detected'
 			if(1 !== comparisonCategorization.order){
 				throw Error('Order "' + comparisonCategorization.order + '" is unexpected. Expected "1"');
 			}
@@ -52,7 +50,6 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
     			treeIdFragment += self.displayHierarchyDelim + 'Aquatic Life';
     		}
     	}
-    	
     	return treeIdFragment;
     };
     
@@ -325,6 +322,5 @@ nar.pesticideReport.Tree = function(timeSeriesVisualizations, tsvController, gra
         tsvController.removeAll(timeSeriesVisualizations);
     });
     //open root node by default
-    $(graphToggleElt).jstree("open_node", "root");
-    
+    $(graphToggleElt).jstree("open_node", "root")
 };
