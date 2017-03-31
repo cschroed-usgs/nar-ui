@@ -1,0 +1,440 @@
+
+/**********************
+       CONSTANTS
+***********************/
+
+@primaryColor:rgb(0,51,102);
+
+@boxColor:#fff;
+
+@titleColor:#fff;
+
+@baseFontFamily:"Signika Negative";
+
+@baseFontColor:@primaryColor;
+
+@boxShadow:0 0 4px rgba(0,0,0,.2);
+
+@baseFontWeightlight:300;
+
+@baseFontWeightReg:400;
+
+@baseFontWeightBold:700;
+
+@siteBorder:1px solid rgb(230,230,230);
+
+@megaMenuLinkColor:#000;
+
+@megaMenuHoverColor:rgb(102,204,255);
+
+@padding:10px;
+
+@linkLineHeight:.7em;
+
+@linkMarginTop:5px;
+
+@linkMarginLeft:10px;
+
+/*********************************
+   OPERATIONS & COLOR FUNCTIONS
+**********************************/
+
+
+
+/**********************
+         STYLES
+***********************/
+body{background:rgb(213,213,213);
+	min-width:730px;
+}
+
+.container{background:none;
+                min-height:874px;}
+/*##########header##########*/               
+header.row{background:#000;
+            height:72px;}
+            
+.logo{background:aqua;
+    height:72px;
+    padding:0;
+   width:178px;
+    }
+    
+.banner{background:none;
+    height:72px;
+    padding:0;
+    }
+    
+
+    
+.header_nav{background:none;
+    height:72px;
+    width:114px;
+    padding:0px;
+    }
+    
+.header_nav ul{list-style-type:none;
+                color:#fff;
+                font-size:1em;
+                 padding:0px;
+                 margin-top:9px;
+                 line-height:1.4em;}
+                 
+.header_nav a{color:@titleColor;}
+
+.header_nav a:hover{text-decoration:underline;}
+/*##########header_end##########*/ 
+ 
+/*##########title_area##########*/
+  
+ .title_area{background:@primaryColor;
+                height:38px;
+                margin-top:1px;
+               }
+               
+.title{background:none;
+        height:38px;
+        padding:0;
+        margin:0;
+        width:775px;}
+        
+.title a{text-decoration:none;}
+                
+.title h4{color:@titleColor;
+                font-family:@baseFontFamily;
+                font-weight:@baseFontWeightReg;
+               padding:0;
+               margin-top:10px;
+               margin-left:10px;
+                }
+ .buttons{  background:none;
+            position:relative;
+            padding:0;
+            margin-top:0;
+            height:38px;
+            width:395px;
+            }
+            
+.buttons ul{list-style-type:none;
+            background:none;
+            height:38px;
+            padding:0;
+            margin:0;
+            position:relative;
+            z-index:2000;
+            }
+
+.buttons li{
+            
+            float:left;
+            background:none;
+            width:160px;
+            height:38px;
+           color:#fff;
+           margin-right:5px;
+           padding-top:6px;
+           padding-bottom:10px;
+           text-align:center;
+           font-size:1.2em;
+           cursor:pointer;
+           
+           }
+           
+.buttons li.small{width:110px;}
+           
+.buttons li:hover{background:#fff;
+                    color:@primaryColor;
+                   }
+                   
+                    
+.buttons ul li:hover .menu-item{display:block;
+								
+}
+
+#about_item{width:210px;
+			position:absolute;
+			right:5px;
+			
+}
+
+#about_item h4{text-align:left;
+}
+
+#about_item h4 a {width:210px;
+				
+}
+ 
+.menu-item {display:none;
+  width: 380px; 
+  text-align:left;
+  box-shadow:0 1px 5px rgba(0,0,0,.3);
+ 
+}
+
+.menu-item:first-child{ margin-top:8px;}
+
+
+
+/*Menu Header Styles*/
+.menu-item h4 {
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 7px 12px;
+  background:#fff;
+  border-bottom: 1px solid #eee;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.menu-item h4 a {
+  color: rgb(0,51,102) !important;
+  display: block;
+  text-decoration: none;
+  font-family:"Source Sans Pro";
+  
+}
+
+
+
+
+/*ul Styles*/
+.menu-item ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  height: 0px; /*Collapses the menu*/
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+  margin-bottom:0;
+  box-shadow:0 1px 5px rgba(0,0,0,.3);
+   /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+		  transition-delay:.2s;
+}
+
+.menu-item:hover ul {
+  height: 30px;
+}
+
+
+.menu-item:hover ul.single{height:30px;}
+ 
+.menu-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 370px;
+}
+ 
+/*li Styles*/
+.menu-item li {
+  border-bottom: 1px solid #eee;
+  text-align:left;
+  float:none;
+  height:31px;
+  padding:0 !important;
+  width:100%;
+  font-size:1.1em;
+}
+
+.menu-item li.indent{text-indent:1em;
+					}
+ 
+.menu-item li:hover,
+.menu-item h4:hover {
+  background: #eee;
+}
+                            
+
+                
+/*##########title_area_end##########*/
+
+/*##########hide_button##########*/
+
+.show{background:none;
+}
+
+#show_hide{background:rgb(236,237,239);
+			height:20px;
+			width:140px;
+			float:right;
+			border:1px solid rgb(176,176,176);
+			text-align:center;
+			margin-bottom:10px;
+			font-size:.9em;
+			cursor:pointer;
+}
+
+#show_hide:hover{background:rgb(200,200,200);}
+
+/*##########hide_button_end##########*/
+
+/*##########footer##########*/
+
+footer{min-height:20px;
+        margin-top:10px;
+        position:relative;
+        background:red;
+        clear:both;
+        }
+        
+.footer_top{background:rgb(102,102,102);
+            height:20px;
+            padding:0;
+           font-size:.8em;
+           }
+            
+.footer_top ul{list-style-type:none;
+                 margin-left:-25px; 
+                 }
+
+.footer_top li{float:left;
+                margin-right:40px;
+                padding-top:3px;
+                }
+                
+.footer_top a{color:#fff;}
+            
+.footer_bottom{background:#fff;
+            min-height:20px;}
+            
+.footer_bottom p.first{margin-top:7px;}
+
+.footer_bottom p{line-height:1em;}
+            
+.footer_bottom a{color:@primaryColor;}
+
+#pic_links{background:none;
+            width:100px;
+            height:70px;
+            position:absolute;
+            right:0;
+            top:10px;}
+            
+#pic_links img{float:left;
+                margin-right:10px;}
+
+/*##########footer_end##########*/
+ 
+@media (min-width:992px) and (max-width:1199px){
+	
+.banner{width:678px;}
+
+/*##########header_end##########*/ 
+ 
+/*##########title_area##########*/
+    
+.title{width:580px;}	
+        
+.buttons{width:390px;}
+            
+.buttons li{width:150px;
+			font-size:1.1em;
+			padding-top:8px;
+}
+
+.menu-item {
+  width: 300px;
+ }
+ 
+ #about_item{right:10px;}
+ 
+ .menu-item h4{font-size:1em;}
+ 
+ .menu-item li{font-size:.9em;
+ 				width:100%;
+ }
+ 
+ .menu-item li.indent{text-indent:.8em;}
+                            
+h3{font-size:1.2em;}              
+
+}/*media end */
+
+@media (min-width:768px) and (max-width:991px){
+	
+.banner{width:457px;}
+
+/*##########header_end##########*/ 
+ 
+/*##########title_area##########*/
+    
+.title{width:400px;}	
+        
+.title h4{font-size:1.2em;}
+        
+.buttons{width:350px;}
+            
+.buttons li{width:135px;
+           padding-top:10px;
+          	font-size:.9em;}
+
+.buttons li.small{width:95px;}
+
+
+
+.menu-item {
+  width: 275px;
+ 
+}
+
+.menu-item li{width:100%;
+				font-size:.85em
+ }
+ 
+ .menu-item li.indent{text-indent:.9em;}
+                            
+h3{font-size:1.2em;}
+    
+    }/*media end */
+
+@media (min-width:220px) and (max-width:767px){
+             
+.banner{width:420px;}		
+    
+/*##########header_end##########*/ 
+ 
+/*##########title_area##########*/
+  
+ .title{width:380px;}	
+        
+.title h4{font-size:1.2em;}
+        
+.buttons{width:350px;}
+            
+.buttons li{width:135px;
+			font-size:.9em;
+			padding-top:11px;}
+           
+.buttons li.small{width:95px;}	
+
+.menu-item {
+  width: 275px;
+ 
+}
+
+.menu-item li{width:100%;
+				font-size:.85em
+ }
+ 
+ .menu-item li.indent{text-indent:.9em;}
+                            
+h3{font-size:1.2em;}
+	          
+/*##########title_area_end##########*/
+
+	
+}/*media end */
+
+
+  
+
+/**********************
+        MIXINS
+***********************/
