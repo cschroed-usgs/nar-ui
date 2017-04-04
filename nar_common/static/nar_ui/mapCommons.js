@@ -112,7 +112,8 @@ nar.commons.map = nar.commons.map || {};
 	    		version: '1.1.0',
 	    		url: CONFIG.endpoint.geoserver + 'NAR/wfs',
 	    		featureType: nar.commons.map.sitesName,
-	    		featureNS: nar.commons.map.narNamespace
+	    		featureNS: nar.commons.map.narNamespace,
+	    		outputFormat: 'json'
 	    	});
 	    	return protocol;
 	    },
