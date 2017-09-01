@@ -121,7 +121,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "nar_common.settings_context_processor.default"                       
 )
 # Set to the most current water year in the loaded data
-NAR_CURRENT_WATER_YEAR = 2015
+NAR_CURRENT_WATER_YEAR = 2016
 
 #This is injected unescaped into a single-quoted javascript string
 #This is done to fool the qa response rewrites that do a simple cida.usgs.gov -> cida-test.er.usgs.gov replacement
