@@ -512,7 +512,7 @@ $(document).ready(
 						}
 						
 						//Giving the charts their design
-						var ticks = ['1992 - 2012 (Annual average)', '2013 - ' + (CONFIG.currentWaterYear - 1), (CONFIG.currentWaterYear)];
+						var ticks = ['1992 - 2012 (Annual average)', '2013 - ' + (CONFIG.currentWaterYear - 1) + ' (Annual average)', (CONFIG.currentWaterYear)];
 						$.jqplot(selector, [data.values],  {
 							axesDefaults: {
 								tickOptions:{
