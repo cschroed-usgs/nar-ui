@@ -461,15 +461,14 @@ $(document).ready(
 						
 						var data = crossWalk(summaryData, type, benchmark);
 						
-						//Checking For 0 and switching it for message
-						$.each(data.values, function(index, value){
-							if(value === 0 && index !== 2){
-								data.values[index] = 'No Exceedances';
-							}
-							else if(value === 0 && index === 2){
-								data.values[index] = 'No Data Available';
-							}
-						});
+						if('number' === type){
+							//Checking For 0 and switching it for message
+							$.each(data.values, function(index, value){
+								if(value === 0 || value === '0'){
+									data.values[index] = 'No Exceedances';
+								}
+							});
+						}
 					
 						//Sets X axis numbers
 						if(type === '%'){
