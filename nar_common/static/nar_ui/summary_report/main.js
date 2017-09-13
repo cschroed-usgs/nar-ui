@@ -584,7 +584,7 @@ $(document).ready(
 								//Creates year popup
 								if(value !== ''){
 									popUpText += '<p>' + numAnalyzed + ' samples analyzed</p>';
-									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic ALBs</p>';
+									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic HHBs</p>';
 									$('#' + selector).append('<div class="yearPopUp ' + 'yearComparison-' + index + '">' + popUpText + '</div>');
 								}
 							});
