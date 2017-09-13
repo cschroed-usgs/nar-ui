@@ -512,7 +512,7 @@ $(document).ready(
 						}
 						
 						//Giving the charts their design
-						var ticks = ['1992 - 2012 (Annual average)', '2013 - ' + (CONFIG.currentWaterYear - 1), (CONFIG.currentWaterYear)];
+						var ticks = ['1992 - 2012 (Annual average)', '2013 - ' + (CONFIG.currentWaterYear - 1) + ' (Annual average)', (CONFIG.currentWaterYear)];
 						$.jqplot(selector, [data.values],  {
 							axesDefaults: {
 								tickOptions:{
@@ -584,7 +584,7 @@ $(document).ready(
 								//Creates year popup
 								if(value !== ''){
 									popUpText += '<p>' + numAnalyzed + ' samples analyzed</p>';
-									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic ALBs</p>';
+									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic HHBs</p>';
 									$('#' + selector).append('<div class="yearPopUp ' + 'yearComparison-' + index + '">' + popUpText + '</div>');
 								}
 							});
