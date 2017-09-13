@@ -71,7 +71,7 @@ nar.plots.createCoastalBasinPlot = function (config){
 		else {
 			currentYearData.push(dataValue(splitData.currentYearData.first()));
 			if (timeSeries.first().featureOfInterest === RIO_GRANDE) {
-				curLabels.push(formatRioGrande(dataValue(splitData.currentYearData).first()));
+				curLabels.push(formatRioGrande(dataValue(splitData.currentYearData.first())));
 			}
 			else {
 				curLabels.push('');
