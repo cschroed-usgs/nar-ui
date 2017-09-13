@@ -576,6 +576,7 @@ $(document).ready(
 							var numWBenchmark = data.wBenchmarks[index];
 							$(labelClick[index]).on('click', function(e){
 								var popUpText = '';
+								var benchmarkAbbreviation = 'aquatic' === benchmark ? 'ALBs' : 'HHBs';
 								//Hides any existing popUp
 								$('.comparisonPopUp').remove();
 								$('.yearPopUp').remove();
@@ -583,8 +584,9 @@ $(document).ready(
 								e.stopPropagation();
 								//Creates year popup
 								if(value !== ''){
+									
 									popUpText += '<p>' + numAnalyzed + ' samples analyzed</p>';
-									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic HHBs</p>';
+									popUpText += '<p>' + numWBenchmark + ' pesticides with acute or chronic ' + benchmarkAbbreviation + '</p>';
 									$('#' + selector).append('<div class="yearPopUp ' + 'yearComparison-' + index + '">' + popUpText + '</div>');
 								}
 							});
