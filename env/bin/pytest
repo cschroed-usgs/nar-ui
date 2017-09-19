@@ -1,7 +1,0 @@
-#!/opt/tomcat/.jenkins/jobs/build_django_app/workspace/env/bin/python2.7
-
-import warnings
-warnings.simplefilter('default', DeprecationWarning)
-
-from logilab.common.pytest import run
-run()
